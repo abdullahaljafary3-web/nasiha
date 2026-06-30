@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>المقال</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="content"></div>
+
+<script src="articles.js"></script>
+
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+
+    const article = articles.find(a => a.id === id);
+
+    const container = document.getElementById("content");
+
+    if (article) {
+        container.innerHTML = `
+            <div class="article">
+                ${article.content}
+            </div>
+        `;
+    } else {
+        container.innerHTML = "<h2>المقال غير موجود</h2>";
+    }
+</script>
+
+</body>
+</html>
