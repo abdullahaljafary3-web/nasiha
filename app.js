@@ -1,57 +1,27 @@
+import { db, collection, getDocs } from "./firebase.js";
+
 const container = document.getElementById("articles");
-const searchBox = document.getElementById("searchBox");
 
-let currentCategory = "الكل";
+async function loadArticles() {
 
-// عرض المقالات
-function displayArticles(list) {
+    const snapshot = await getDocs(collection(db, "articles"));
+
     container.innerHTML = "";
 
-    list.forEach(article => {
+    snapshot.forEach(doc => {
+        const a = doc.data();
+
         const card = document.createElement("div");
         card.className = "card";
 
         card.innerHTML = `
-            <span class="tag">${article.category}</span>
-            <h3>${article.title}</h3>
-            <p>${article.description}</p>
-            <a href="article.html?id=${article.id}">اقرأ المقال</a>
+            <h3>${a.title}</h3>
+            <p>${a.description}</p>
+            <span class="tag">${a.category}</span>
         `;
 
         container.appendChild(card);
     });
 }
 
-// فلترة حسب التصنيف + البحث
-function updateView() {
-    const searchValue = searchBox.value.toLowerCase();
-
-    let filtered = articles;
-
-    // فلترة التصنيف
-    if (currentCategory !== "الكل") {
-        filtered = filtered.filter(a => a.category === currentCategory);
-    }
-
-    // فلترة البحث
-    filtered = filtered.filter(article =>
-        article.title.toLowerCase().includes(searchValue) ||
-        article.description.toLowerCase().includes(searchValue)
-    );
-
-    displayArticles(filtered);
-}
-
-// البحث
-searchBox.addEventListener("input", updateView);
-
-// التصنيفات
-function filterCategory(category) {
-    currentCategory = category;
-    updateView();
-}
-
-// أول تحميل
-displayArticles(articles);
-import { db, collection, getDocs } from "./firebase.js";
-<script type="module" src="app.js"></script>
+loadArticles();
