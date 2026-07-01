@@ -53,3 +53,4 @@ function filterCategory(category) {
 
 // أول تحميل
 displayArticles(articles);
+import { db, collection, getDocs } from "./firebase.js";
