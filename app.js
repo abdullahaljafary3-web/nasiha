@@ -1,21 +1,67 @@
 const container = document.getElementById("articles");
+const searchBox = document.getElementById("searchBox");
 
+let allArticles = [];
+let currentCategory = "الكل";
+
+// تحميل المقالات من Firebase
 async function loadArticles() {
-    const snapshot = await firebase.firestore().collection("articles").get();
+
+    const snapshot = await db.collection("articles").get();
+
+    allArticles = [];
+
+    snapshot.forEach(doc => {
+        allArticles.push(doc.data());
+    });
+
+    renderArticles(allArticles);
+}
+
+// عرض المقالات
+function renderArticles(list) {
 
     container.innerHTML = "";
 
-    snapshot.forEach(doc => {
-        const a = doc.data();
-
+    list.forEach(a => {
         container.innerHTML += `
             <div class="card">
                 <h3>${a.title}</h3>
                 <p>${a.description}</p>
-                <span>${a.category}</span>
+                <span class="tag">${a.category}</span>
             </div>
         `;
     });
 }
 
+// فلترة التصنيفات
+function filterCategory(cat) {
+    currentCategory = cat;
+
+    applyFilters();
+}
+
+// البحث + التصنيف معًا
+function applyFilters() {
+
+    let filtered = allArticles;
+
+    if (currentCategory !== "الكل") {
+        filtered = filtered.filter(a => a.category === currentCategory);
+    }
+
+    const search = searchBox.value.toLowerCase();
+
+    filtered = filtered.filter(a =>
+        a.title.toLowerCase().includes(search) ||
+        a.description.toLowerCase().includes(search)
+    );
+
+    renderArticles(filtered);
+}
+
+// البحث
+searchBox.addEventListener("input", applyFilters);
+
+// تشغيل أولي
 loadArticles();
