@@ -1,6 +1,3 @@
-const app = initializeApp(firebaseConfig);
-</script>
-
 const firebaseConfig = {
     apiKey: "AIzaSyC-myHs4l_gK9kMLbuImVQrd7JAJIlTeiY",
     authDomain: "nasiha-ff5c0.firebaseapp.com",
