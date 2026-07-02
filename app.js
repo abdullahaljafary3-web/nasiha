@@ -23,17 +23,23 @@ function renderArticles(list) {
 
     container.innerHTML = "";
 
-    list.forEach(a => {
+    list.forEach((a, index) => {
+
         container.innerHTML += `
             <div class="card">
                 <h3>${a.title}</h3>
                 <p>${a.description}</p>
                 <span class="tag">${a.category}</span>
+
+                <br><br>
+
+                <a href="article.html?id=${index}" class="read-more">
+                    اقرأ المزيد →
+                </a>
             </div>
         `;
     });
 }
-
 // فلترة التصنيفات
 function filterCategory(cat) {
     currentCategory = cat;
