@@ -3,7 +3,6 @@ import { db, collection, getDocs } from "./firebase.js";
 const container = document.getElementById("articles");
 
 async function loadArticles() {
-
     const snapshot = await getDocs(collection(db, "articles"));
 
     container.innerHTML = "";
@@ -17,7 +16,7 @@ async function loadArticles() {
         card.innerHTML = `
             <h3>${a.title}</h3>
             <p>${a.description}</p>
-            <span class="tag">${a.category}</span>
+            <span>${a.category}</span>
         `;
 
         container.appendChild(card);
