@@ -15,31 +15,23 @@
 
 <script src="firebase.js"></script>
 <script>
-async function loadArticle() {
-
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    
+    async function loadArticles() {
 
     const snapshot = await db.collection("articles").get();
 
-    const articles = [];
+    allArticles = [];
 
     snapshot.forEach(doc => {
-        articles.push(doc.data());
+
+        allArticles.push({
+            _id: doc.id,      // 🔥 هذا هو المهم
+            ...doc.data()
+        });
     });
 
-    const article = articles[id];
-
-    document.getElementById("article").innerHTML = `
-        <div class="card">
-            <h1>${article.title}</h1>
-            <p>${article.description}</p>
-            <div>${article.content}</div>
-        </div>
-    `;
+    renderArticles(allArticles);
 }
-
-loadArticle();
 </script>
 
 </body>
