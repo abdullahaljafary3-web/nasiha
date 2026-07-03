@@ -12,12 +12,15 @@ async function loadArticles() {
     allArticles = [];
 
     snapshot.forEach(doc => {
-        allArticles.push(doc.data());
+
+        allArticles.push({
+            _id: doc.id,      // 🔥 هذا هو المهم
+            ...doc.data()
+        });
     });
 
     renderArticles(allArticles);
 }
-
 // عرض المقالات
 function renderArticles(list) {
 
