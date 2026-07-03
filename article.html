@@ -16,22 +16,31 @@
 <script src="firebase.js"></script>
 <script>
     
-    async function loadArticles() {
+   async function loadArticle() {
 
-    const snapshot = await db.collection("articles").get();
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
 
-    allArticles = [];
+    const doc = await db.collection("articles").doc(id).get();
 
-    snapshot.forEach(doc => {
+    if (!doc.exists) {
+        document.getElementById("article").innerHTML = "المقال غير موجود";
+        return;
+    }
 
-        allArticles.push({
-            _id: doc.id,      // 🔥 هذا هو المهم
-            ...doc.data()
-        });
-    });
+    const a = doc.data();
 
-    renderArticles(allArticles);
+    document.getElementById("article").innerHTML = `
+        <div class="card">
+            <h1>${a.title}</h1>
+            <p>${a.description}</p>
+            <hr>
+            <div>${a.content}</div>
+        </div>
+    `;
 }
+
+loadArticle();
 </script>
 
 </body>
