@@ -23,7 +23,7 @@ function renderArticles(list) {
 
     container.innerHTML = "";
 
-    list.forEach((a, index) => {
+    list.forEach((a) => {
 
         container.innerHTML += `
             <div class="card">
@@ -33,7 +33,7 @@ function renderArticles(list) {
 
                 <br><br>
 
-                <a href="article.html?id=${index}" class="read-more">
+                <a href="article.html?id=${a._id}" class="read-more">
                     اقرأ المزيد →
                 </a>
             </div>
