@@ -31,30 +31,46 @@ auth.onAuthStateChanged(user => {
 
 // إضافة مقال
 
-function addArticle() {
+async function uploadImage(file) {
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    const response = await fetch("https://api.imgbb.com/1/upload?key=YOUR_API_KEY", {
+        method: "POST",
+        body: formData
+    });
+
+    const data = await response.json();
+
+    return data.data.url; // رابط الصورة
+}
+
+async function addArticle() {
 
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const category = document.getElementById("category").value;
     const content = document.getElementById("content").value;
+    const file = document.getElementById("imageFile").files[0];
 
-    if (!title || !description || !content) {
-        alert("يرجى ملء كل الحقول");
+    if (!file) {
+        alert("اختر صورة");
         return;
     }
 
-    db.collection("articles").add({
-        title: title,
-        description: description,
-        category: category,
-        content: content,
-        date: new Date()
-    }).then(() => {
-        alert("تم نشر المقال بنجاح 🚀");
+    // رفع الصورة أولًا
+    const imageUrl = await uploadImage(file);
 
-        document.getElementById("title").value = "";
-        document.getElementById("description").value = "";
-        document.getElementById("content").value = "";
+    // حفظ المقال في Firebase Firestore
+    db.collection("articles").add({
+        title,
+        description,
+        category,
+        content,
+        image: imageUrl,
+        date: new Date()
     });
 
+    alert("تم نشر المقال 🚀");
 }
