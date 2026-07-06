@@ -28,19 +28,20 @@ function renderArticles(list) {
 
     list.forEach((a) => {
 
-        container.innerHTML += `
-            <div class="card">
-                <h3>${a.title}</h3>
-                <p>${a.description}</p>
-                <span class="tag">${a.category}</span>
+       container.innerHTML += `
+    <div class="card">
+        <img src="${a.image}" style="width:100%; border-radius:10px;">
+        <h3>${a.title}</h3>
+        <p>${a.description}</p>
+        <span class="tag">${a.category}</span>
 
-                <br><br>
+        <br><br>
 
-                <a href="article.html?id=${a._id}" class="read-more">
-                    اقرأ المزيد →
-                </a>
-            </div>
-        `;
+        <a href="article.html?id=${a._id}" class="read-more">
+            اقرأ المزيد →
+        </a>
+    </div>
+`;
     });
 }
 // فلترة التصنيفات
