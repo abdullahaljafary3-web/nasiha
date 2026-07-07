@@ -108,3 +108,7 @@ body {
     max-width: 400px;
     margin: 100px auto;
 }
+.article-content {
+    line-height: 2;
+    font-size: 18px;
+}
