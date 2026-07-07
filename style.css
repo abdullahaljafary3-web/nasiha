@@ -112,3 +112,25 @@ body {
     line-height: 2;
     font-size: 18px;
 }
+.article-content {
+    line-height: 2;
+    font-size: 18px;
+    color: #333;
+}
+
+.article-content h2 {
+    font-size: 28px;
+    margin-top: 25px;
+}
+
+.article-content p {
+    margin: 15px 0;
+}
+
+.article-content ul {
+    padding-right: 25px;
+}
+
+.article-content li {
+    margin: 10px 0;
+}
