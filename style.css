@@ -134,3 +134,6 @@ body {
 .article-content li {
     margin: 10px 0;
 }
+.form textarea {
+    min-height: 300px;
+}
