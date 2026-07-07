@@ -62,10 +62,11 @@ function applyFilters() {
 
     const search = searchBox.value.toLowerCase();
 
-    filtered = filtered.filter(a =>
-        a.title.toLowerCase().includes(search) ||
-        a.description.toLowerCase().includes(search)
-    );
+   filtered = filtered.filter(a =>
+    a.title.toLowerCase().includes(search) ||
+    a.description.toLowerCase().includes(search) ||
+    a.content.toLowerCase().includes(search)
+);
 
     renderArticles(filtered);
 }
