@@ -137,3 +137,14 @@ body {
 .form textarea {
     min-height: 300px;
 }
+#editor {
+    background: white;
+    min-height: 300px;
+    direction: rtl;
+    text-align: right;
+}
+
+.ql-editor {
+    font-size: 18px;
+    line-height: 2;
+}
