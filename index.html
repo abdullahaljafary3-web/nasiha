@@ -3,189 +3,204 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>منصة النصيحة العلمية</title>
+<title>منصة النصيحة العلمية</title>
 
-    <meta name="description" content="منصة علمية لنشر المقالات والفوائد والنصائح">
+<meta name="description"
+content="منصة علمية عربية لنشر المقالات والفوائد والنصائح الموثوقة">
 
-    <link rel="stylesheet" href="css/style.css">
+<meta name="keywords"
+content="مقالات, علوم, فقه, حديث, تفسير, لغة عربية">
 
-    <link rel="stylesheet" href="css/home.css">
+<meta name="author"
+content="عبدالله الجعفري">
 
-    <link rel="stylesheet" href="css/responsive.css">
+<meta name="theme-color"
+content="#0F4C81">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon"
+href="images/favicon.ico">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="css/variables.css">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+<link rel="stylesheet"
+href="css/home.css">
+
+<link rel="stylesheet"
+href="css/responsive.css">
 
 </head>
 
 <body>
 
-<header>
+<header class="header">
 
-    <div class="container">
+<div class="container">
 
-        <div class="logo">
+<a href="index.html" class="logo">
 
-            📚 منصة النصيحة العلمية
+📚 منصة النصيحة العلمية
 
-        </div>
+</a>
 
-        <nav>
+<nav class="navbar">
 
-            <a href="index.html">الرئيسية</a>
+<a href="index.html">الرئيسية</a>
 
-            <a href="category.html">التصنيفات</a>
+<a href="category.html">الأقسام</a>
 
-            <a href="about.html">من نحن</a>
+<a href="about.html">من نحن</a>
 
-            <a href="contact.html">اتصل بنا</a>
+<a href="contact.html">اتصل بنا</a>
 
-        </nav>
+</nav>
 
-    </div>
+<div class="header-actions">
+
+<button id="darkModeBtn">
+
+🌙
+
+</button>
+
+</div>
+
+</div>
 
 </header>
 
+<main>
+
 <section class="hero">
 
-    <div class="container">
+<div class="container">
 
-        <h1>
+<h1>
 
-            مرحبًا بك في منصة النصيحة العلمية
+منصة النصيحة العلمية
 
-        </h1>
+</h1>
 
-        <p>
+<p>
 
-            مقالات علمية موثوقة، فوائد، نصائح، وأبحاث باللغة العربية.
+مقالات علمية موثوقة باللغة العربية، مكتوبة بأسلوب واضح ومنظم.
 
-        </p>
+</p>
 
-        <input
-            type="search"
-            placeholder="ابحث عن مقال..."
-            id="searchBox">
+<div class="search-box">
 
-    </div>
+<input
+type="search"
+id="searchInput"
+placeholder="ابحث عن مقال...">
+
+<button id="searchButton">
+
+بحث
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
 <section class="featured">
 
-    <div class="container">
+<div class="container">
 
-        <h2>
+<h2>
 
-            ⭐ المقال المميز
+⭐ المقال المميز
 
-        </h2>
+</h2>
 
-        <div class="featured-card">
+<div id="featuredArticle">
 
-            <div class="featured-image"></div>
+سيظهر هنا المقال المميز بعد ربط Firebase.
 
-            <div class="featured-content">
+</div>
 
-                <h3>
-
-                    عنوان المقال المميز
-
-                </h3>
-
-                <p>
-
-                    سيظهر هنا ملخص المقال المميز بمجرد ربط الموقع بقاعدة البيانات.
-
-                </p>
-
-                <a href="#">
-
-                    اقرأ المقال
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 <section class="latest">
 
-    <div class="container">
+<div class="container">
 
-        <h2>
+<h2>
 
-            أحدث المقالات
+📰 أحدث المقالات
 
-        </h2>
+</h2>
 
-        <div id="articles" class="articles-grid">
+<div id="articles"
+class="articles-grid">
 
-            <!-- سيتم تعبئتها لاحقًا بواسطة Firebase -->
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 </section>
 
 <section class="categories">
 
-    <div class="container">
+<div class="container">
 
-        <h2>
+<h2>
 
-            تصفح حسب التصنيف
+📚 الأقسام
 
-        </h2>
+</h2>
 
-        <div class="category-grid">
+<div id="categories"
+class="categories-grid">
 
-            <div class="category-card">الفقه</div>
+</div>
 
-            <div class="category-card">العقيدة</div>
-
-            <div class="category-card">الحديث</div>
-
-            <div class="category-card">التفسير</div>
-
-            <div class="category-card">اللغة العربية</div>
-
-            <div class="category-card">التقنية</div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
+</main>
+
 <footer>
 
-    <div class="container">
+<div class="container">
 
-        <p>
+<p>
 
-            © 2026 منصة النصيحة العلمية
+© 2026 منصة النصيحة العلمية
 
-        </p>
+</p>
 
-    </div>
+</div>
 
 </footer>
-    
+
 <script src="js/config.js"></script>
-    
+
+<script src="js/utils.js"></script>
+
 <script src="js/ui.js"></script>
 
 <script src="js/app.js"></script>
