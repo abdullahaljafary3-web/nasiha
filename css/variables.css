@@ -1,1 +1,99 @@
+/* ===========================================
+   منصة النصيحة العلمية
+   CSS Variables
+   الإصدار 1.0
+=========================================== */
 
+:root{
+
+    /* ===== الألوان الأساسية ===== */
+
+    --primary:#0F4C81;
+
+    --primary-dark:#0B3A61;
+
+    --secondary:#1E88E5;
+
+    --accent:#FFC107;
+
+    --success:#2E7D32;
+
+    --danger:#D32F2F;
+
+    --warning:#F57C00;
+
+    /* ===== الخلفيات ===== */
+
+    --background:#F5F7FA;
+
+    --surface:#FFFFFF;
+
+    --surface-2:#EEF3F8;
+
+    /* ===== النصوص ===== */
+
+    --text:#222222;
+
+    --text-light:#666666;
+
+    --text-white:#FFFFFF;
+
+    /* ===== الحدود ===== */
+
+    --border:#E0E0E0;
+
+    /* ===== الظلال ===== */
+
+    --shadow-sm:0 2px 6px rgba(0,0,0,.05);
+
+    --shadow-md:0 8px 20px rgba(0,0,0,.08);
+
+    --shadow-lg:0 12px 30px rgba(0,0,0,.12);
+
+    /* ===== الحواف ===== */
+
+    --radius-sm:8px;
+
+    --radius-md:12px;
+
+    --radius-lg:18px;
+
+    --radius-xl:25px;
+
+    /* ===== الخطوط ===== */
+
+    --font-family:"Cairo",sans-serif;
+
+    --font-xs:13px;
+
+    --font-sm:15px;
+
+    --font-md:17px;
+
+    --font-lg:20px;
+
+    --font-xl:28px;
+
+    --font-xxl:42px;
+
+    /* ===== المسافات ===== */
+
+    --space-1:5px;
+
+    --space-2:10px;
+
+    --space-3:15px;
+
+    --space-4:20px;
+
+    --space-5:30px;
+
+    --space-6:40px;
+
+    --space-7:60px;
+
+    /* ===== الانتقالات ===== */
+
+    --transition:.3s ease;
+
+}
