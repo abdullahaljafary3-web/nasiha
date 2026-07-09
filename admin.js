@@ -30,7 +30,19 @@ auth.onAuthStateChanged(user => {
 });
 
 // إضافة مقال
-
+let quill = new Quill('#editor', {
+    theme: 'snow',
+    placeholder: 'اكتب المقال هنا...',
+    modules: {
+        toolbar: [
+            ['bold', 'italic', 'underline'],
+            [{ 'header': 1 }, { 'header': 2 }],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            ['link'],
+            ['clean']
+        ]
+    }
+});
 async function uploadImage(file) {
 
     const formData = new FormData();
@@ -51,7 +63,7 @@ async function addArticle() {
     const title = document.getElementById("title").value;
     const description = document.getElementById("description").value;
     const category = document.getElementById("category").value;
-    const content = document.getElementById("content").value;
+   const content = quill.root.innerHTML;
     const file = document.getElementById("imageFile").files[0];
 
     if (!file) {
