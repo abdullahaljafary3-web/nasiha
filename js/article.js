@@ -12,7 +12,19 @@ const params = new URLSearchParams(window.location.search);
 const articleId = params.get("id");
 
 const container = document.getElementById("articleContainer");
+function formatDate(date){
 
+    if(!date) return "";
+
+    if(date.toDate){
+
+        return date.toDate().toLocaleDateString("ar-EG");
+
+    }
+
+    return date;
+
+}
 async function loadArticle(){
 
     if(!articleId){
@@ -37,13 +49,23 @@ async function loadArticle(){
 
     const article = snap.data();
     // زيادة عدد المشاهدات
-await updateDoc(ref, {
-    views: increment(1)
-});
+// زيادة عدد المشاهدات في قاعدة البيانات
+try{
 
-// تحديث القيمة محلياً
+    await updateDoc(ref, {
+
+        views: increment(1)
+
+    });
+
+}catch(error){
+
+    console.error("خطأ في تحديث المشاهدات", error);
+
+}
+
+// تحديث القيمة المعروضة مباشرة
 article.views = (article.views || 0) + 1;
-
     document.title = article.title;
 
     container.innerHTML = `
@@ -54,13 +76,13 @@ article.views = (article.views || 0) + 1;
 
         <div class="article-meta">
 
-            ${article.category}
+    <span>📂 ${article.category}</span>
 
-            |
+    <span>📅 ${formatDate(article.date)}</span>
 
-            ${article.date}
+    <span>👁️ ${article.views} مشاهدة</span>
 
-        </div>
+</div>
 
         <div class="article-content">
 
