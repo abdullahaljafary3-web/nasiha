@@ -1,5 +1,6 @@
 import { db } from "./firebase.js";
 import { calculateReadingTime } from "./utils/readingTime.js";
+import { getRelatedArticles } from "./services/articles.js";
 
 import {
     doc,
@@ -96,6 +97,41 @@ article.views = (article.views || 0) + 1;
 
     `;
 
+    const related = await getRelatedArticles(article.category, articleId);
+
+if (related.length > 0) {
+
+    let html = `
+        <section class="related-articles">
+
+            <h2>📚 مقالات ذات صلة</h2>
+
+            <div class="related-grid">
+    `;
+
+    related.forEach(item => {
+
+        html += `
+            <a class="related-card" href="article.html?id=${item.id}">
+
+                <img src="${item.image}" alt="${item.title}">
+
+                <h3>${item.title}</h3>
+
+            </a>
+        `;
+
+    });
+
+    html += `
+            </div>
+
+        </section>
+    `;
+
+    container.innerHTML += html;
+
+}
 }
 
 loadArticle();
