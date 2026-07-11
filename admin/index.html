@@ -1,23 +1,110 @@
-
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>لوحة التحكم</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 
+<div class="dashboard">
+
+<aside class="sidebar">
+
+<h2>📚 منصة النصيحة العلمية</h2>
+
+<a href="#">🏠 الرئيسية</a>
+
+<a href="#">📝 المقالات</a>
+
+<a href="#">📂 التصنيفات</a>
+
+<a href="#">🖼️ الوسائط</a>
+
+<a href="#">⚙️ الإعدادات</a>
+
+<a href="login.html">🚪 تسجيل الخروج</a>
+
+</aside>
+
+<main class="content">
+
 <h1>
 
-مرحبًا بك في لوحة التحكم 🎉
+لوحة التحكم
 
 </h1>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>المقالات</h3>
+
+<p id="articlesCount">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>المشاهدات</h3>
+
+<p id="viewsCount">0</p>
+
+</div>
+
+<div class="card">
+
+<h3>المقالات المميزة</h3>
+
+<p id="featuredCount">0</p>
+
+</div>
+
+</div>
+
+<h2>
+
+آخر المقالات
+
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>العنوان</th>
+
+<th>التصنيف</th>
+
+<th>المشاهدات</th>
+
+</tr>
+
+</thead>
+
+<tbody id="articlesTable">
+
+</tbody>
+
+</table>
+
+</main>
+
+</div>
+
+<script type="module" src="js/dashboard.js"></script>
 
 </body>
 
