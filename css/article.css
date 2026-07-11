@@ -1,0 +1,83 @@
+.article-cover{
+
+width:100%;
+
+height:420px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+margin:40px 0;
+
+}
+
+#articleContainer{
+
+max-width:900px;
+
+margin:auto;
+
+background:white;
+
+padding:40px;
+
+border-radius:15px;
+
+box-shadow:var(--shadow-md);
+
+}
+
+#articleContainer h1{
+
+font-size:40px;
+
+margin-bottom:20px;
+
+color:var(--primary);
+
+}
+
+.article-meta{
+
+margin-bottom:35px;
+
+color:gray;
+
+font-size:15px;
+
+}
+
+.article-content{
+
+font-size:20px;
+
+line-height:2.1;
+
+}
+
+.article-content img{
+
+max-width:100%;
+
+margin:25px auto;
+
+display:block;
+
+border-radius:12px;
+
+}
+
+.article-content h2{
+
+margin:35px 0 15px;
+
+color:var(--primary);
+
+}
+
+.article-content p{
+
+margin-bottom:20px;
+
+}
