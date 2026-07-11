@@ -1,57 +1,22 @@
-import { db } from "./firebase.js";
+import { getArticles } from "./services/articles.js";
 
-import {
-    collection,
-    getDocs
-} from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+import { createArticleCard } from "./components/articleCard.js";
 
-async function loadArticles(){
+async function loadHome(){
 
-    const articlesContainer = document.getElementById("articles");
+    const container=document.getElementById("articles");
 
-    articlesContainer.innerHTML = "<div class='spinner'></div>";
+    container.innerHTML="<div class='spinner'></div>";
 
     try{
 
-        const snapshot = await getDocs(collection(db,"articles"));
+        const articles=await getArticles();
 
-        articlesContainer.innerHTML="";
+        container.innerHTML="";
 
-        snapshot.forEach(doc=>{
+        articles.forEach(article=>{
 
-            const article = doc.data();
-
-            const card = document.createElement("div");
-
-            card.className="article-card";
-
-            card.innerHTML=`
-
-                <div class="article-image">
-
-                    <img src="${article.image}" alt="${article.title}">
-
-                </div>
-
-                <div class="article-content">
-
-                    <h3>${article.title}</h3>
-
-                    <p>${article.summary}</p>
-
-                    <div class="article-footer">
-
-                        <span>${article.category}</span>
-
-                        <span>${article.date}</span>
-
-                    </div>
-
-                </div>
-
-            `;
-
-            articlesContainer.appendChild(card);
+            container.innerHTML+=createArticleCard(article.id,article);
 
         });
 
@@ -59,12 +24,12 @@ async function loadArticles(){
 
     catch(error){
 
-        articlesContainer.innerHTML="<p>حدث خطأ أثناء تحميل المقالات.</p>";
-
         console.error(error);
+
+        container.innerHTML="<p>تعذر تحميل المقالات.</p>";
 
     }
 
 }
 
-loadArticles();
+loadHome();
