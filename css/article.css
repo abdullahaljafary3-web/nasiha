@@ -148,3 +148,44 @@ margin-bottom:20px;
     line-height:1.6;
 
 }
+/* ===========================
+   Tags
+=========================== */
+
+.article-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:35px;
+
+}
+
+.tag{
+
+    background:var(--surface-2);
+
+    color:var(--primary);
+
+    padding:8px 16px;
+
+    border-radius:999px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    transition:var(--transition);
+
+}
+
+.tag:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
