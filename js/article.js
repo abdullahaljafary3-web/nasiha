@@ -88,7 +88,17 @@ article.views = (article.views || 0) + 1;
     <span>⏱️ ${readingTime} دقيقة قراءة</span>
 
 </div>
+<div class="article-tags">
 
+    ${
+        article.tags
+        ? article.tags.map(tag =>
+            `<span class="tag">${tag}</span>`
+        ).join("")
+        : ""
+    }
+
+</div>
         <div class="article-content">
 
             ${article.content}
