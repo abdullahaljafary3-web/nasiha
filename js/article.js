@@ -2,7 +2,9 @@ import { db } from "./firebase.js";
 
 import {
     doc,
-    getDoc
+    getDoc,
+    updateDoc,
+    increment
 } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -34,6 +36,13 @@ async function loadArticle(){
     }
 
     const article = snap.data();
+    // زيادة عدد المشاهدات
+await updateDoc(ref, {
+    views: increment(1)
+});
+
+// تحديث القيمة محلياً
+article.views = (article.views || 0) + 1;
 
     document.title = article.title;
 
