@@ -1,4 +1,5 @@
 import { db } from "./firebase.js";
+import { calculateReadingTime } from "./utils/readingTime.js";
 
 import {
     doc,
@@ -48,6 +49,7 @@ async function loadArticle(){
     }
 
     const article = snap.data();
+    const readingTime = calculateReadingTime(article.content);
     // زيادة عدد المشاهدات
 // زيادة عدد المشاهدات في قاعدة البيانات
 try{
@@ -74,13 +76,15 @@ article.views = (article.views || 0) + 1;
 
         <h1>${article.title}</h1>
 
-        <div class="article-meta">
+       <div class="article-meta">
 
     <span>📂 ${article.category}</span>
 
     <span>📅 ${formatDate(article.date)}</span>
 
     <span>👁️ ${article.views} مشاهدة</span>
+
+    <span>⏱️ ${readingTime} دقيقة قراءة</span>
 
 </div>
 
