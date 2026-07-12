@@ -1,1 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>إدارة المقالات</title>
+
+<link rel="stylesheet" href="css/admin.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<aside class="sidebar">
+
+<h2>📚 منصة النصيحة العلمية</h2>
+
+<a href="index.html"><i class="fa-solid fa-house"></i> الرئيسية</a>
+
+<a href="articles.html" class="active">
+<i class="fa-solid fa-newspaper"></i>
+المقالات
+</a>
+
+<a href="#"><i class="fa-solid fa-folder"></i> التصنيفات</a>
+
+<a href="#"><i class="fa-solid fa-image"></i> الوسائط</a>
+
+<a href="#"><i class="fa-solid fa-gear"></i> الإعدادات</a>
+
+</aside>
+
+<main class="content">
+
+<div class="page-header">
+
+<h1>إدارة المقالات</h1>
+
+<a href="new-article.html" class="btn">
+
+<i class="fa-solid fa-plus"></i>
+
+مقال جديد
+
+</a>
+
+</div>
+
+<input
+type="text"
+id="search"
+placeholder="ابحث عن مقال...">
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>الصورة</th>
+
+<th>العنوان</th>
+
+<th>التصنيف</th>
+
+<th>المشاهدات</th>
+
+<th>العمليات</th>
+
+</tr>
+
+</thead>
+
+<tbody id="articlesTable">
+
+</tbody>
+
+</table>
+
+</main>
+
+</div>
+
+<script type="module" src="js/articles.js"></script>
+
+</body>
+
+</html>
